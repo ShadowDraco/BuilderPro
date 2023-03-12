@@ -16,6 +16,16 @@ function App() {
 
 	// const [authenticatedUser, setAuthenticatedUser] = useState({})
 
+	// update state with new data
+	const updateAuthenticatedUser = async newData => {
+		console.log(newData)
+	}
+
+	// sync to and from the database/server
+	const syncAuthenticatedUser = async () => {
+		console.log(newData)
+	}
+
 	return (
 		<Container centerContent maxWidth='full' className='App'>
 			<BrowserRouter>
@@ -23,7 +33,8 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/authenticate' element={<Signup />} />
-					{/*<Route path='/about' element={<Blogs />} />*/}
+					{/*<Route path='/game' element={<Game />} />*/}
+					{/*<Route path='/about' element={<About />} />*/}
 					{/*<Route path='contact' element={<Contact />} />*/}
 					<Route path='*' element={<NoPage />} />
 				</Routes>
