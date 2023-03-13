@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import NoPage from './pages/NoPage'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './services/firebase/AuthContext'
 
 function App() {
   /*
@@ -28,20 +29,22 @@ function App() {
   }
 
   return (
-    <Container centerContent maxWidth='full' className='App'>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/authenticate' element={<Signup />} />
-          {/*<Route path='/game' element={<Game />} />*/}
-          {/*<Route path='/about' element={<About />} />*/}
-          {/*<Route path='contact' element={<Contact />} />*/}
-          <Route path='*' element={<NoPage />} />
-        </Routes>
-        {/* Footer */}
-      </BrowserRouter>
-    </Container>
+    <AuthProvider>
+      <Container centerContent maxWidth='full' className='App'>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/authenticate' element={<Signup />} />
+            {/*<Route path='/game' element={<Game />} />*/}
+            {/*<Route path='/about' element={<About />} />*/}
+            {/*<Route path='contact' element={<Contact />} />*/}
+            <Route path='*' element={<NoPage />} />
+          </Routes>
+          {/* Footer */}
+        </BrowserRouter>
+      </Container>
+    </AuthProvider>
   )
 }
 
