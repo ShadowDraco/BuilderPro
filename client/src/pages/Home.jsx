@@ -1,7 +1,11 @@
 import React from 'react'
 
-import { Box } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 
 export default function Home() {
-	return <Box>Home</Box>
+  return (
+    <Container centerContent my={5}>
+      <Box>Home</Box>
+    </Container>
+  )
 }
