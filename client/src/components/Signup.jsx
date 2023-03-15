@@ -32,7 +32,7 @@ export default function Signup() {
 			const user = await createUserWithEmailAndPassword(auth, email, password)
 			console.log(user)
 		} catch (error) {
-			console.log('error signing up user', error.message)
+			setError(`Uh-oh, that email is probably in use!`)
 		}
 	}
 	async function handleSubmit(e) {
@@ -44,7 +44,7 @@ export default function Signup() {
 			await signup(emailRef.current.value, passwordRef.current.value)
 			// set error to '' if there isn't one
 		} catch (error) {
-			setError('Uh-oh, something went wrong')
+			setError(`Uh-oh, ${error.message}`)
 		}
 
 		setLoading(false)
@@ -55,7 +55,7 @@ export default function Signup() {
 			<Card p={1}>
 				<CardBody>
 					<Text fontSize='3xl' m={3}>
-						Sign up here!
+						{error ? `${error}` : 'Sign up here!'}
 					</Text>
 
 					<form onSubmit={handleSubmit}>
@@ -76,8 +76,6 @@ export default function Signup() {
 							<Input type='password' ref={passwordRef} />
 							<FormHelperText>Use a unique password :)</FormHelperText>
 						</FormControl>
-
-						{error && <FormErrorMessage> {error}</FormErrorMessage>}
 
 						<Button type='submit' disabled={loading} colorScheme='blue'>
 							Submit!

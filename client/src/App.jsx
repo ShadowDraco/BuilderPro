@@ -11,19 +11,10 @@ import NoPage from './pages/NoPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-	const [currentUser, setCurrentUser] = useState('')
-
-	const updateCurrentUser = newUserInfo => {
-		setCurrentUser(newUserInfo)
-	}
-
 	return (
 		<Container centerContent maxWidth='full' className='App'>
 			<BrowserRouter>
-				<Header
-					currentUser={currentUser}
-					updateCurrentUser={updateCurrentUser}
-				/>
+				<Header />
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/authenticate' element={<Signup />} />

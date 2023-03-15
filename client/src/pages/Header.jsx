@@ -3,6 +3,8 @@ import React from 'react'
 import { Flex, Box, CSSReset } from '@chakra-ui/react'
 import ThemeToggler from '../components/ThemeToggler'
 
+import { auth } from '../services/firebase-config'
+
 export default function Header() {
 	return (
 		<Flex
@@ -24,6 +26,7 @@ export default function Header() {
 				<CSSReset />
 				<ThemeToggler />
 			</Box>
+			<Box>{auth.currentUser.email}</Box>
 		</Flex>
 	)
 }
