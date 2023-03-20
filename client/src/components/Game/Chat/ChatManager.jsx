@@ -8,14 +8,14 @@ import EnterRoom from './EnterRoom'
 
 import { useRoom } from './ChatContext'
 
-export default function ChatManager() {
+export default function ChatManager(props) {
 	const { inRoom } = useRoom()
 
 	return (
 		<Container minWidth='80%'>
 			{inRoom ? (
 				<Flex direction={'column'}>
-					<ChatBox /> <SendChat />
+					<ChatBox user={props.user} /> <SendChat user={props.user} />
 				</Flex>
 			) : (
 				<EnterRoom />

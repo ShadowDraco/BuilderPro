@@ -13,7 +13,7 @@ export default function Game(props) {
 	return (
 		<Container my={5} centerContent className='Game' minWidth={'full'}>
 			{props.user ? (
-				<ChatManager />
+				<ChatManager user={props.user} />
 			) : (
 				<Link href='/login'>You need to Log in to play the game!</Link>
 			)}

@@ -20,11 +20,12 @@ export default function Footer() {
 		>
 			<Box>Hello</Box>
 			<Box>Im</Box>
+			<Box>The</Box>
 			<Box>Footer</Box>
 
 			{roomName ? (
 				<>
-					<Box> Party: {roomName}</Box>
+					<Box> Chat Room: {roomName}</Box>
 					<Button colorScheme='blue' onClick={leaveRoom}>
 						Leave room
 					</Button>

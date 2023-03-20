@@ -13,7 +13,7 @@ import {
 
 import { useRoom } from './ChatContext'
 
-export default function SendChat() {
+export default function SendChat(props) {
 	const [loading, setLoading] = useState(false)
 
 	const { sendMessage } = useRoom()
@@ -22,8 +22,11 @@ export default function SendChat() {
 
 	const handleSubmit = e => {
 		e.preventDefault()
+		const newMessage = messageRef.current.value
 
-		sendMessage(messageRef.current.value)
+		if (newMessage === '') return
+
+		sendMessage(props.user.displayName, newMessage)
 		messageRef.current.value = ''
 	}
 
