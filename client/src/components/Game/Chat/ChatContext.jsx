@@ -34,11 +34,10 @@ export function ChatProvider({ children }) {
 		setRoomName('')
 	}
 
+	// on refresh and state update, grab a 'snapshot' of the database messages
 	useEffect(() => {
 		try {
 			if (roomName) {
-				// get the room from the database collection of rooms
-
 				const messagesQuery = query(
 					messagesRef,
 					where('roomName', '==', roomName),
