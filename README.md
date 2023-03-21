@@ -1,4 +1,4 @@
-# mega-game
+# mega-game - (currently with real-time chat)
 
 sockets, new libraries, new api's, functional components, fun
 
