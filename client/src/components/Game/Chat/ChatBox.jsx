@@ -10,6 +10,7 @@ export default function ChatBox(props) {
 		<Flex
 			direction={'column'}
 			p={4}
+			my={2}
 			outline={'solid'}
 			outlineColor={'blue.700'}
 		>
@@ -21,6 +22,8 @@ export default function ChatBox(props) {
 							textAlign={
 								props.user.displayName === message.from ? 'left' : 'right'
 							}
+							height={'5'}
+							maxHeight={'5'}
 						>
 							{message.from}: {message.message}
 						</Text>
