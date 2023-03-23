@@ -12,7 +12,7 @@ export default function ChatManager(props) {
 	const { inRoom } = useRoom()
 
 	return (
-		<Container minWidth='80%'>
+		<Container maxWidth='830'>
 			{inRoom ? (
 				<Flex direction={'column'}>
 					<ChatBox user={props.user} /> <SendChat user={props.user} />
