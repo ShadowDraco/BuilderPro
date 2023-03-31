@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react'
 import Phaser from 'phaser'
 
+const canvasWidth = 500
+const canvasHeight = 400
+
 var config = {
 	type: Phaser.AUTO,
-	width: 800,
-	height: 600,
+	width: canvasWidth,
+	height: canvasHeight,
 	parent: 'phaser-target',
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: { y: 300 },
-			debug: false,
+			gravity: { y: 0 },
+			debug: true,
 		},
 	},
 	scene: {
@@ -31,12 +34,19 @@ var stars
 var bombs
 
 function preload() {
-	this.load.image('sky', 'assets/sky.png')
+	this.load.spritesheet(
+		'mainGroundTiles',
+		'assets/sprites/tilesets/grass.png',
+		{
+			frameWidth: 7,
+			frameHeight: 7,
+		}
+	)
 	this.load.image('ground', 'assets/platform.png')
 	this.load.image('star', 'assets/star.png')
 	this.load.image('bomb', 'assets/bomb.png')
-	this.load.spritesheet('dude', 'assets/dude.png', {
-		frameWidth: 32,
+	this.load.spritesheet('player', 'assets/characters/player.png', {
+		frameWidth: 48,
 		frameHeight: 48,
 	})
 }
@@ -64,27 +74,28 @@ const createStars = scene => {
 }
 
 const createPlayer = scene => {
-	player = scene.physics.add.sprite(100, 450, 'dude')
+	player = scene.physics.add.sprite(100, 450, 'player')
 
-	player.setBounce(0.2)
+	player.setBounce(0.0)
 	player.setCollideWorldBounds(true)
 
 	scene.anims.create({
 		key: 'left',
-		frames: scene.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+		flipX: true,
+		frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 11 }),
 		frameRate: 10,
 		repeat: -1,
 	})
 
 	scene.anims.create({
-		key: 'turn',
-		frames: [{ key: 'dude', frame: 4 }],
-		frameRate: 20,
+		key: 'idle',
+		frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 5 }),
+		frameRate: 10,
 	})
 
 	scene.anims.create({
 		key: 'right',
-		frames: scene.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+		frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 11 }),
 		frameRate: 10,
 		repeat: -1,
 	})
@@ -95,18 +106,20 @@ const checkMovement = () => {
 		player.setVelocityX(-160)
 
 		player.anims.play('left', true)
+		player.flipX = true
 	} else if (cursors.right.isDown) {
 		player.setVelocityX(160)
 
 		player.anims.play('right', true)
+		player.flipX = false
 	} else {
 		player.setVelocityX(0)
 
-		player.anims.play('turn')
+		player.anims.play('idle')
 	}
 
-	if (cursors.up.isDown && player.body.touching.down) {
-		player.setVelocityY(-330)
+	if (cursors.up.isDown) {
+		player.setVelocityY(-160)
 	}
 }
 
@@ -141,7 +154,11 @@ const hitBomb = (player, bomb) => {
 }
 
 function create() {
-	this.add.image(400, 300, 'sky')
+	for (let i = 0; i < canvasWidth; i += 7) {
+		for (let j = 0; j < canvasHeight; j += 7) {
+			this.add.image(i, j, 'mainGroundTiles')
+		}
+	}
 	createPlatforms(this)
 	createPlayer(this)
 	createStars(this)
