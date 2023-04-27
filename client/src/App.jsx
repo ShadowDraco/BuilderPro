@@ -11,6 +11,8 @@ import Game from './pages/Game'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
 import NoPage from './pages/NoPage'
+import About from './pages/About'
+import Contact from './pages/Contact'
 
 import { ChatProvider } from './components/Game/Chat/ChatContext'
 
@@ -43,8 +45,8 @@ function App() {
 						<Route path='/signup' element={<Signup />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/game' element={<Game user={user} />} />
-						{/*<Route path='/about' element={<About />} />*/}
-						{/*<Route path='contact' element={<Contact />} />*/}
+						<Route path='/about' element={<About />} />
+						<Route path='/contact' element={<Contact />} />
 						<Route path='*' element={<NoPage user={user} />} />
 					</Routes>
 					<Footer />
