@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, Container, Text } from '@chakra-ui/react'
-
+import nature2 from '/nature2.png'
 export default function About() {
 	return (
-		<Container centerContent my={5}>
-			<Box>
+		<Container centerContent my={5} backgroundImage={nature2} height={600}>
+			<Box background={'blackAlpha.500'} mt={5}>
 				<Text fontSize={'4xl'} textAlign={'center'} color={'highlight'}>
 					Welcome to Explorer Pro BETA
 					<Text fontSize={'sm'}>
@@ -33,20 +33,10 @@ export default function About() {
 					Your messages are stored securely so you can continue where you left
 					off in the future!
 				</Text>
-				<Text
-					fontSize={'2xl'}
-					color={'rebeccapurple'}
-					textAlign={'center'}
-					mt={5}
-				>
+				<Text fontSize={'2xl'} color={'purple.200'} textAlign={'center'} mt={5}>
 					Refresh
 				</Text>
-				<Text
-					fontSize={'1xl'}
-					color={'rebeccapurple'}
-					textAlign={'center'}
-					mt={2}
-				>
+				<Text fontSize={'1xl'} color={'purple.200'} textAlign={'center'} mt={2}>
 					The game world is randomly generated with tons of interaction, make it
 					your own every time!
 				</Text>
