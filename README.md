@@ -1,5 +1,7 @@
 # mega-game - (currently with real-time chat)
 
+## Hosted at [Explorer Pro](https://mega-game-c1533.web.app/)
+
 ## Making use of many new libraries, practices, and frameworks to immerse myself in something great
 
     - Built with React JS, Firebase, Unity5, ChakraUI
