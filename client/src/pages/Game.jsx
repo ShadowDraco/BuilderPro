@@ -3,6 +3,7 @@ import { Unity, useUnityContext } from 'react-unity-webgl'
 import { Flex, Box } from '@chakra-ui/react'
 
 import ChatManager from '../components/Game/Chat/ChatManager'
+import GameVersion from '../components/Game/GameDetails/GameVersion'
 
 export default function Game(props) {
 	const unityRef = useRef(null)
@@ -95,8 +96,15 @@ export default function Game(props) {
 							}}
 						/>
 					}
+					<Flex width='full'>
+						<ChatManager
+							user={props.user}
+							ref={chatRef}
+							onClick={focusChatRef}
+						/>
 
-					<ChatManager user={props.user} ref={chatRef} onClick={focusChatRef} />
+						<GameVersion />
+					</Flex>
 				</>
 			) : (
 				<Link href='/login'>You need to Log in to play the game!</Link>
