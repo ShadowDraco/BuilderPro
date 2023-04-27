@@ -29,7 +29,11 @@ export default function Footer() {
 				</Link>
 			</Box>
 			<Box>The Farming/Gathering Game</Box>
-			<Box></Box>
+			<Box>
+				<Link href='https://github.com/shadowdraco/mega-game' target='blank'>
+					See it on Github!
+				</Link>
+			</Box>
 
 			{roomName ? (
 				<>
