@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex, Link } from '@chakra-ui/react'
 
 import { useRoom } from '../components/Game/Chat/ChatContext'
 
@@ -18,10 +18,22 @@ export default function Footer() {
 			outline='double'
 			outlineColor='blue.300'
 		>
-			<Box>Hello</Box>
-			<Box>Im</Box>
-			<Box>The</Box>
-			<Box>Footer</Box>
+			<Box>This is ExplorerPro</Box>
+			<Box>
+				<Link
+					color={'Highlight'}
+					href='https://github.com/shadowdraco'
+					target='blank'
+				>
+					Built by ShadowDraco
+				</Link>
+			</Box>
+			<Box>The Farming/Gathering Game</Box>
+			<Box>
+				<Link href='https://github.com/shadowdraco/mega-game' target='blank'>
+					See it on Github!
+				</Link>
+			</Box>
 
 			{roomName ? (
 				<>

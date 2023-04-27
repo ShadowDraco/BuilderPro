@@ -20,6 +20,7 @@ export default function SendChat(props) {
 
 	const messageRef = useRef()
 
+
 	const handleSubmit = e => {
 		e.preventDefault()
 		const newMessage = messageRef.current.value
@@ -39,7 +40,7 @@ export default function SendChat(props) {
 							<FormControl>
 								<Flex justifyContent='center' alignItems='center'>
 									<FormLabel minWidth={'fit-content'}>Message:</FormLabel>
-									<Input type='text' ref={messageRef} />
+									<Input type='text' ref={messageRef} tabIndex={1} />
 								</Flex>
 							</FormControl>
 
