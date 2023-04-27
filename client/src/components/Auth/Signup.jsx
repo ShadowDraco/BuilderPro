@@ -83,6 +83,10 @@ export default function Signup() {
 
 	return (
 		<Box mt={5} p={2} minWidth='70%' maxWidth='80%'>
+			<Text>
+				Your email and password will not be used for any purpose but to log in
+				and display messages. Use any format you like!
+			</Text>
 			<Card p={1}>
 				<CardBody>
 					<Text fontSize='3xl' m={3}>
