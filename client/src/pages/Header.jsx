@@ -22,37 +22,50 @@ export default function Header(props) {
 				<ThemeToggler />
 			</Box>
 
-			<Flex gap={3} alignItems='center' justifyContent='space-between'>
-				<Button>
-					<Link href='/'>Home</Link>
-				</Button>
+			<Flex gap={8} alignItems='center' justifyContent='space-between'>
+				<Link href='/'>
+					<Button>Home</Button>
+				</Link>
 				{props.user && (
 					<Button>
 						<Link href='/game'>Game</Link>
 					</Button>
 				)}
+				<Link href='/about'>
+					<Button>About</Button>
+				</Link>
+				<Link href='/contact'>
+					<Button>Contact</Button>
+				</Link>
 			</Flex>
 
 			{props.user ? (
-				<Flex gap={4} alignItems='center' justifyContent='center'>
+				<Flex gap={5} alignItems='center' justifyContent='center'>
 					<Box>
-						<Text>{props.user.displayName}</Text>
+						<Text fontFamily={'monospace'} fontSize={'2xl'}>
+							{props.user.displayName}
+						</Text>
 					</Box>
 					<Box>
 						<Logout />
 					</Box>
 				</Flex>
 			) : (
-				<Flex gap={3} alignItems='center' justifyContent='center'>
+				<Flex
+					gap={3}
+					alignItems='center'
+					justifyContent='center'
+					background={'lightgoldenrodyellow'}
+				>
 					<Box>
-						<Button>
-							<Link href='/login'>Log in!</Link>
-						</Button>
+						<Link href='/login' color={'black'}>
+							<Button background={'Highlight'}>Log in!</Button>
+						</Link>
 					</Box>
 					<Box>
-						<Button>
-							<Link href='/signup'>Sign up!</Link>
-						</Button>
+						<Link href='/signup' color={'black'}>
+							<Button background={'Highlight'}>Sign up!</Button>
+						</Link>
 					</Box>
 				</Flex>
 			)}

@@ -13,6 +13,8 @@ export default function ChatBox(props) {
 			my={2}
 			outline={'solid'}
 			outlineColor={'blue.700'}
+			maxH={150}
+			overflowY={'scroll'}
 		>
 			{messages &&
 				messages.map((message, i) => {
