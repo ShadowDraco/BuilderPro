@@ -9,6 +9,29 @@ export default function Game(props) {
 	const unityRef = useRef(null)
 	const chatRef = useRef(null)
 
+	const [unityWidth, setUnityWidth] = useState(750)
+	const [unityHeight, setUnityHeight] = useState(422)
+
+	const setSmall = () => {
+		setUnityWidth(400)
+		setUnityHeight(225)
+	}
+
+	const setMedium = () => {
+		setUnityWidth(600)
+		setUnityHeight(338)
+	}
+
+	const setBig = () => {
+		setUnityWidth(750)
+		setUnityHeight(422)
+	}
+
+	const setHuge = () => {
+		setUnityWidth(950)
+		setUnityHeight(534)
+	}
+
 	const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
 		loaderUrl: '/assets/HTMLBuild.loader.js',
 		dataUrl: '/assets/HTMLBuild.data.unityweb',
@@ -22,9 +45,18 @@ export default function Game(props) {
 		if (key == 'Backspace') {
 			chatRef.current.value = chatRef.current.value.slice(0, -1)
 			return
-		} else if (key == 'Enter') {
-			return
-		} else if (key == 'Tab') {
+		} else if (key == 'Delete') {
+			chatRef.current.value = ''
+		} else if (
+			key == 'Enter' ||
+			key == 'Tab' ||
+			key == 'Shift' ||
+			key == 'Control' ||
+			key == 'Alt' ||
+			key == 'Meta' ||
+			key == 'ContextMenu' ||
+			key == 'Insert'
+		) {
 			return
 		} else {
 			chatRef.current.value += key
@@ -35,19 +67,18 @@ export default function Game(props) {
 		// If the Unity canvas has focus, just handle the events manually
 		if (event.target.type === 'text' || event.target.type === 'button') {
 			!chatRef.current && discoverChatRef
+
 			handleTyping(event.key)
 		}
 	}
 
 	const discoverChatRef = () => {
-		if (!chatRef.current) {
-			chatRef.current = document.querySelector('input[type="text"]')
-		}
+		console.log('hi')
+		chatRef.current = document.querySelector('input[type="text"]')
 	}
 
 	const focusChatRef = e => {
 		chatRef.current.focus()
-		console.log(chatRef.current)
 	}
 
 	useEffect(() => {
@@ -63,6 +94,7 @@ export default function Game(props) {
 			alignItems='center'
 			justifyContent='center'
 			direction={'column'}
+			m={2}
 		>
 			{props.user ? (
 				<>
@@ -89,21 +121,26 @@ export default function Game(props) {
 							tabIndex={2}
 							id='unity'
 							style={{
-								width: 950,
-								height: 600,
+								width: unityWidth,
+								height: unityHeight,
 								margin: '2em',
 								border: '5px black double',
 							}}
 						/>
 					}
-					<Flex width='full'>
+					<Flex width='full' direction={'column'}>
 						<ChatManager
 							user={props.user}
-							ref={chatRef}
 							onClick={focusChatRef}
+							ref={chatRef}
+							discoverChatRef={discoverChatRef}
 						/>
-
-						<GameVersion />
+						<GameVersion
+							setHuge={setHuge}
+							setBig={setBig}
+							setMedium={setMedium}
+							setSmall={setSmall}
+						/>
 					</Flex>
 				</>
 			) : (

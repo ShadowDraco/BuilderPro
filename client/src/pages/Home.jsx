@@ -13,7 +13,7 @@ export default function Home() {
 			width={500}
 			backgroundImage={nature1}
 		>
-			<Box background={'blackAlpha.500'} mt={20}>
+			<Box background={'blackAlpha.600'} mt={20}>
 				<Text fontSize={'4xl'} mt={5} textAlign={'center'} color={'highlight'}>
 					Welcome to Explorer Pro
 				</Text>

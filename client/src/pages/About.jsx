@@ -3,13 +3,20 @@ import { Box, Container, Text } from '@chakra-ui/react'
 import nature2 from '/nature2.png'
 export default function About() {
 	return (
-		<Container centerContent my={5} backgroundImage={nature2} height={600}>
-			<Box background={'blackAlpha.500'} mt={5}>
+		<Container
+			centerContent
+			my={5}
+			backgroundImage={nature2}
+			height={600}
+			overflowY={'scroll'}
+			width={'full'}
+		>
+			<Box background={'blackAlpha.600'} mt={5} width={'full'}>
 				<Text fontSize={'4xl'} textAlign={'center'} color={'highlight'}>
 					Welcome to Explorer Pro BETA
-					<Text fontSize={'sm'}>
-						The game will be updated with new features and bug fixes!
-					</Text>
+				</Text>
+				<Text fontSize={'sm'} textAlign={'center'} color={'highlight'}>
+					The game will be updated with new features and bug fixes!
 				</Text>
 				<Text fontSize={'2xl'} color={'wheat'} textAlign={'center'} mt={5}>
 					Play

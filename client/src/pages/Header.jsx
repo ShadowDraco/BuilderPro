@@ -8,14 +8,15 @@ import Logout from '../components/Auth/Logout'
 export default function Header(props) {
 	return (
 		<Flex
-			mt={1}
+			m={1}
 			p={2}
 			gap={6}
 			alignItems='center'
 			justifyContent='space-between'
-			minWidth='full'
+			width='full'
 			outline='double'
 			outlineColor='blue.300'
+			overflow={'auto'}
 		>
 			<Box>
 				<CSSReset />
