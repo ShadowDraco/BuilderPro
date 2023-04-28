@@ -30,13 +30,7 @@ function App() {
 	}, [user])
 
 	return (
-		<Container
-			centerContent
-			maxWidth='full'
-			className='App'
-			minHeight='80vh'
-			maxHeight='100vh'
-		>
+		<Container centerContent maxWidth='95vw' className='App' minHeight='80vh'>
 			<ChatProvider>
 				<BrowserRouter>
 					<Header user={user} />

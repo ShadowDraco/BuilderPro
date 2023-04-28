@@ -9,14 +9,15 @@ export default function Footer() {
 
 	return (
 		<Flex
-			mt={1}
+			m={1}
 			p={2}
 			gap={6}
 			alignItems='center'
 			justifyContent='space-between'
-			minWidth='full'
+			width={'full'}
 			outline='double'
 			outlineColor='blue.300'
+			overflow={'auto'}
 		>
 			<Box>This is ExplorerPro</Box>
 			<Box>

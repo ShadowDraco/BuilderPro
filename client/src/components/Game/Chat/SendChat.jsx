@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import {
 	Box,
@@ -20,7 +20,6 @@ export default function SendChat(props) {
 
 	const messageRef = useRef()
 
-
 	const handleSubmit = e => {
 		e.preventDefault()
 		const newMessage = messageRef.current.value
@@ -30,6 +29,10 @@ export default function SendChat(props) {
 		sendMessage(props.user.displayName, newMessage)
 		messageRef.current.value = ''
 	}
+
+	useEffect(() => {
+		props.discoverChatRef()
+	}, [])
 
 	return (
 		<Box minWidth='full'>
