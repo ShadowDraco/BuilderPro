@@ -3,6 +3,7 @@
 ## Making use of many new libraries, practices, and frameworks to immerse myself in something great
 
     - Built with React JS, Firebase, Unity5, ChakraUI
+    - Game code and fullstack website developed by myself! 
 
 ### What's new here?
 
