@@ -2,8 +2,10 @@
 
 ## Making use of many new libraries, practices, and frameworks to immerse myself in something great
 
-    - Built with React JS, Firebase, Unity5, ChakraUI
-    - Game code and fullstack website developed by myself! 
+[![In this project](https://skillicons.dev/icons?i=,react,firebase,unity,vite,js,html,css,chakraui)](https://skillicons.dev)
+
+    - Built with React JS, Firebase, Unity5, Vite, ChakraUI
+    - Game code and fullstack website developed by myself!
 
 ### What's new here?
 
